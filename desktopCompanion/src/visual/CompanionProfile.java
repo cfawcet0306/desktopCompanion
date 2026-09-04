@@ -22,7 +22,7 @@ import javax.swing.JLabel;
 public class CompanionProfile {
 	
 	//Only need one storage of the portaits
-	private static JLabel[] remPortraits;
+	private static JLabel[] companionPortraits;
 	
 	//Current frame to work in
 	private JFrame frame;
@@ -34,8 +34,8 @@ public class CompanionProfile {
 	//Portraits should only be loaded in once
 	public CompanionProfile() {
 		//If the pictures are loaded already, don't do it again
-		if(remPortraits == null) {
-			remPortraits = new JLabel[2];
+		if(companionPortraits == null) {
+			companionPortraits = new JLabel[2];
 			loadPortraits();
 		}
 		
@@ -50,7 +50,7 @@ public class CompanionProfile {
 		
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
-		currentPortrait = remPortraits[0];
+		currentPortrait = companionPortraits[0];
 		frame.add(currentPortrait);
 		
 		//This here ends up getting the proper dimensions of the device
@@ -81,12 +81,12 @@ public class CompanionProfile {
 	//but I never ended up utilizing it
 	private boolean loadPortraits() {
 		
-		remPortraits[0] = new JLabel(new ImageIcon("resources/imageFiles/silent.png"));
-		remPortraits[1] = new JLabel(new ImageIcon("resources/imageFiles/speak.png"));
+		companionPortraits[0] = new JLabel(new ImageIcon("resources/imageFiles/silent.png"));
+		companionPortraits[1] = new JLabel(new ImageIcon("resources/imageFiles/speak.png"));
 		
 	
-		if(remPortraits[0] == null || remPortraits[1] == null) {
-			remPortraits = null;
+		if(companionPortraits[0] == null || companionPortraits[1] == null) {
+			companionPortraits = null;
 			return false;
 		}
 		
@@ -98,10 +98,10 @@ public class CompanionProfile {
 	public void changePortrait(boolean gloat) {
 		frame.remove(currentPortrait);
 		if(gloat) {
-			currentPortrait = remPortraits[1];
+			currentPortrait = companionPortraits[1];
 		}
 		else {
-			currentPortrait = remPortraits[0];
+			currentPortrait = companionPortraits[0];
 		}
 		frame.add(currentPortrait, 0);
 		frame.revalidate();

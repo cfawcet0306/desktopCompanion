@@ -25,6 +25,7 @@ replay_pid*
 
 #audio resources
 *.wav
+!Recording.wav
 
-#visual resources
-*.png
+
+/bin/
